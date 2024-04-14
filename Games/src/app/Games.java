@@ -137,7 +137,7 @@ public class Games {
         String startingTimesString = games.stream()
                 .map(value -> value.getTime())
                 .distinct()
-                .collect(Collectors.joining());
+                .collect(Collectors.joining(System.lineSeparator()));
 
         System.out.println("Distinct starting times: " + startingTimesString);
         System.out.println();
