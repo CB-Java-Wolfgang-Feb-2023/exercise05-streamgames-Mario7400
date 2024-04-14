@@ -64,14 +64,12 @@ public class Games {
 
         Map<Result, List<Game>> wonLostDrawMap = games.stream()
                 .collect(Collectors.groupingBy(value -> {
-                    if(value.getHome().equals(BAYERN) && value.getHomeGoals() > value.getAwayGoals()){
+                    if(value.getHomeGoals() > value.getAwayGoals()){
                         return Result.WON;
-                    } else if (value.getAway().equals(BAYERN) && value.getAwayGoals() > value.getHomeGoals()) {
-                        return Result.WON;
-                    } else if (value.getHomeGoals() == value.getAwayGoals()) {
-                        return Result.DRAW;
-                    } else {
+                    } else if (value.getAwayGoals() > value.getHomeGoals()) {
                         return Result.LOST;
+                    } else {
+                        return Result.DRAW;
                     }
                 }));
 
